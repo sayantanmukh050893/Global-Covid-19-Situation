@@ -1,37 +1,62 @@
-## Welcome to GitHub Pages
+## Global Impact of Covid-19
 
-You can use the [editor on GitHub](https://github.com/sayantanmukh050893/hello-world-page/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+In the following blog we would analyse the global covid-19 data from different countries and come to a conclusion about the overall condition of the each country in fighting with the covid-19 situation.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Source
 
-### Markdown
+The data used for the analysis of Global Impact of Covid-19 is taken from the following website :-
+https://www.worldometers.info/coronavirus/
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This website contains the following information related to Covid-19 for each and every countries :-
 
-```markdown
-Syntax highlighted code block
+- Total Cases
+- New Cases
+- Total Deaths
+- New Deaths
+- Total Recovered
+- Active Cases
+- Serious, Critical
+- Tot Cases/ 1M pop
+- Deaths/ 1M pop
+- Total Tests
+- Tests/ 1M pop
+- Population
 
-# Header 1
-## Header 2
-### Header 3
+### Procedure
 
-- Bulleted
-- List
+This website is scrapped on a regular basis and then all these informations are retrieved. Further data cleaning and adta transformation takes place on these data.
 
-1. Numbered
-2. List
+Based on all the data, four parameters are calculated primarily for every country :-
 
-**Bold** and _Italic_ and `Code` text
+- Active Cases Rate
+- Total Tests Rate
+- Total Recovered Rate
+- Mortality Rate
 
-[Link](url) and ![Image](src)
-```
+Then four new categorical features are introduced for every country based on the following rules :-
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+1. Active Cases Condition :- 
+- Good :- Active Case Rate lies within 50th percentile of the global active case rate
+- Medium :- Active Case Rate lies between 50th and 75th percentile of the global active case rate
+- Bad :- Active Case Rate lies between 75th and 100th percentile of the global active case rate
 
-### Jekyll Themes
+2. Total Test Condition :- 
+- Good :- Total Test Rate lies between 75th and 100th percentile of the global active case rate
+- Medium :- Total Test Rate lies between 50th and 75th percentile of the global active case rate
+- Bad :- Total Test Rate lies within 50th percentile of the global active case rate
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sayantanmukh050893/hello-world-page/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+3. Total Recovered Condition :-
+- Good :- Total Recovered Rate lies between 75th and 100th percentile of the global active case rate
+- Medium :- Total Recovered Rate lies between 50th and 75th percentile of the global active case rate
+- Bad :- Total Recovered Rate lies within 50th percentile of the global active case rate
 
-### Support or Contact
+4. Mortality Condition :-
+- Good :- Active Case Rate lies within 50th percentile of the global active case rate
+- Medium :- Active Case Rate lies between 50th and 75th percentile of the global active case rate
+- Bad :- Active Case Rate lies between 75th and 100th percentile of the global active case rate
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+These 4 conditions further helps us to decide upon an Overall Condition which categorises a country as either Good, Medium or Bad based upon the countries performance in fighting Covid-19.
+
+The data thus formed is then fed into Google Data Studio and a Dashboard depicting all these features are shown.
+
+### Dashboard Link :- https://datastudio.google.com/reporting/1f332cf3-9621-41a1-a119-0c8121e68767/page/BNYQ
